@@ -12,7 +12,7 @@ pool:
 steps:
 
 - task: Xcode@5
-displayName: 'Running XCTest'
+	displayName: 'Build the tests'
 	inputs:
 		actions: 'test'
 		scheme:  'HelloWorld'#'$(scheme)'
