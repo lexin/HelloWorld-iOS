@@ -24,6 +24,14 @@ class HelloWorldTests: XCTestCase {
         XCTAssertEqual(8, a)
     }
 
+    func testBrokenExample() {
+        let vc = ViewController()
+        let a = vc.calculateSomething()
+        XCTAssertEqual(9, a)
+    }
+
+
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
