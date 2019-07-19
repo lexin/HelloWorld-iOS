@@ -24,11 +24,11 @@ class HelloWorldTests: XCTestCase {
         XCTAssertEqual(8, a)
     }
 
-    func testBrokenExample() {
-        let vc = ViewController()
-        let a = vc.calculateSomething()
-        XCTAssertEqual(9, a)
-    }
+//    func testBrokenExample() {
+//        let vc = ViewController()
+//        let a = vc.calculateSomething()
+//        XCTAssertEqual(9, a)
+//    }
 
 
 
