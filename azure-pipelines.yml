@@ -22,7 +22,7 @@ steps:
 - task: Xcode@5
   displayName: 'Build the app using Xcode'
   inputs:
-    actions: 'build'
+    actions: 'test'
     scheme: 'HelloWorld'
     sdk: 'iphoneos'
     configuration: 'Release'
