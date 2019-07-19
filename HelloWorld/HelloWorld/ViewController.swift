@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    func calculateSomething () -> Int {
+        let a = 5 + 3;
+        return a;
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let b = self.calculateSomething()
+        print(b)
     }
 
 
