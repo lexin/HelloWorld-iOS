@@ -15,13 +15,11 @@ steps:
 displayName: 'Build the tests'
 inputs:
 actions: 'test'
-scheme:  'HelloWorld'#'$(scheme)'
+scheme: 'HelloWorld'
 sdk: 'iphoneos'
 configuration: 'Release'
-xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
-packageApp: false
 xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-#signingOption: "auto"
+xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
 
 - task: Xcode@5
   displayName: 'Build the app using Xcode'
