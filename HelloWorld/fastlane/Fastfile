@@ -1,0 +1,89 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :deploy do |options|
+   #update cocoapods before creation new build
+	#cocoapods(clean: true)
+
+	targetName = "HelloWorld"
+	projectPath = "./HelloWorld.xcodeproj"
+	plistPath = "./HelloWorld/Info.plist"
+	
+	#increment build number for new release 
+	increment_build_number(xcodeproj:projectPath)
+	
+	build_number = get_info_plist_value(
+	    path: plistPath,
+	    key: 'CFBundleVersion',
+	)
+
+	version_number = get_info_plist_value(
+	    path: plistPath,
+	    key: 'CFBundleShortVersionString'
+	)
+
+	app_name = targetName
+	build_name = "#{version_number}(#{build_number})"
+	ipa_name = app_name + " " + build_name
+  	ipa_dir = "build/" + "#{ipa_name}"
+	ipa_name_with_extension = ipa_name + ".ipa"
+	ipa_path = ipa_dir + "/"+ ipa_name_with_extension
+  	branch_path = "feature/build/" + build_name
+	
+	create_branch(branch: "#{branch_path}")
+	
+# 	disable_automatic_code_signing(
+# 	  path: projectPath
+# 	)
+	
+# 		gym(
+# 		workspace: "./OssurScanner.xcworkspace",
+# 		configuration: "Release",
+# 		scheme: "TestScanner",
+# 		export_method: "enterprise",
+# 		export_options: {
+  #       	provisioningProfiles: { 
+    #       		"com.ossur.TestScanner" => "Test Scanner Distribution(659f8382-7796-4767-86b7-6d7162168e9f)",
+      #   	}
+      	# },
+	# 	skip_build_archive: false,
+#     	output_directory: ipa_dir,
+  #   	output_name: ipa_name_with_extension
+# 	)
+	
+# 	changelog = prompt(
+  #  	 text: "Changelog: ",
+   # 	 multi_line_end_keyword: "END"
+  # 	)
+
+
+  
+  	git_commit(
+  	 path: ".",
+      message: "#{version_number}(#{build_number})"
+    )
+
+    add_git_tag(
+      tag: "#{version_number}(#{build_number})"
+    )
+#push_to_git_remote(
+#    	remote: "#{branch_path}"
+#    )
+    end
+end

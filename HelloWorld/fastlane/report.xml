@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.001147">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: increment_build_number" time="1.638495">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: get_info_plist_value" time="0.002818">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: get_info_plist_value" time="0.002089">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: create_branch" time="0.029579">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: git_commit" time="0.036802">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: add_git_tag" time="0.019256">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
